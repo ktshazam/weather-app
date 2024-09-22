@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script type="text/javascript" src="src/script.js"></script>
+    <title>My Weather Application</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <form id="search-form">
+          <input
+            type="search"
+            required
+            class="searchInput"
+            id="searchInput"
+            placeholder="Enter a city.."
+            required
+          />
+          <input type="submit" value="Search" class="btn" id="searchButton" />
+        </form>
+      </header>
+      <main>
+        <div class="current-weather">
+          <div class="today">
+            <h1 id="currentCity" class="currentCity">Paris</h1>
+            <p class="local">
+              <span id="date"></span> <span id="time"></span>, moderate rain
+              <br />
+              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+            </p>
+          </div>
+          <div class="temperature">
+            <span class="temp">☀️ 14</span><span class="unit">°C</span>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p class="footer">
+          This project was coded by
+          <a
+            href="https://www.linkedin.com/in/katie-chisholm-b77698216/"
+            target="_blank"
+            >Katie Chisholm</a
+          >
+          and is
+          <a href="https://github.com/ktshazam" target="_blank"> on GitHub</a>
+          and
+          <a href="https://netlify.com" target="_blank">hosted on Netlify</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
