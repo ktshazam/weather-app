@@ -1,17 +1,36 @@
-function updateTime() {
-  let now = new Date();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-
-  document.getElementById("time").textContent = `${hours}:${minutes}`;
+function newTemperature(response) {
+  let tempElement = document.querySelector("#temp");
+  let temperature = Math.round(response.data.temperature.current);
+  let cityElement = document.querySelector("#searchInput");
+  cityElement.innerHTML = response.data.city;
+  tempElement.innerHTML = temperature;
 }
 
-setInterval(updateTime, 10);
+function search(event) {
+  event.preventDefault();
+  let searchTextInput = document.querySelector("#searchInput");
+  let city = searchTextInput.value;
 
-function updateDay() {
-  let today = new Date();
-  let dayString = today.getDay();
-  let weekdayNames = [
+  let apiKey = "0ab77a62c3f8ao26f89cct2fa594a1e5";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(newTemperature);
+}
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let day = date.getDay();
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -21,17 +40,14 @@ function updateDay() {
     "Saturday",
   ];
 
-  document.getElementById("date").textContent = weekdayNames[dayString];
-}
-
-setInterval(updateDay, 10);
-
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#searchInput");
-  let cityElement = document.querySelector("#currentCity");
-  cityElement.innerText = searchInput.value;
+  let formattedDay = days[day];
+  return `${formattedDay} ${hours}:${minutes}`;
 }
 
 let searchForm = document.querySelector("#searchForm");
 searchForm.addEventListener("submit", search);
+
+let currentDateElement = document.querySelector("#currentDate");
+let currentDate = new Date();
+
+currentDateElement.innerHTML = formatDate(currentDate);

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <script type="text/javascript" src="src/script.js"></script>
     <title>My Weather Application</title>
@@ -10,7 +11,7 @@
   <body>
     <div class="container">
       <header>
-        <form id="search-form">
+        <form id="searchForm">
           <input
             type="search"
             required
@@ -27,13 +28,13 @@
           <div class="today">
             <h1 id="currentCity" class="currentCity">Paris</h1>
             <p class="local">
-              <span id="date"></span> <span id="time"></span>, moderate rain
+              <span id="currentDate"></span>, moderate rain
               <br />
               Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
             </p>
           </div>
           <div class="temperature">
-            <span class="temp">☀️ 14</span><span class="unit">°C</span>
+            <span class="temp" id="temp">14</span><span class="unit">°C</span>
           </div>
         </div>
       </main>
