@@ -43,7 +43,8 @@ hr {
   margin: 0 auto;
   padding: 30px;
   max-width: 600px;
-  margin-top: 50px;
+  margin-top: 80px;
+  box-shadow: #b9b9b9 5px 5px 40px;
 }
 
 .current-weather {
@@ -60,7 +61,7 @@ hr {
   padding-bottom: 20px;
 }
 
-.local {
+.currentDetails {
   font-weight: 400;
 }
 
@@ -74,6 +75,11 @@ hr {
   padding-bottom: 20px;
 }
 
+.currentTemperatureIcon {
+  font-size: 40px;
+  margin-top: -10px;
+}
+
 .temp {
   color: #212121;
   font-weight: bold;
@@ -81,7 +87,7 @@ hr {
   padding-top: 40px;
 }
 
-.unit {
+.degrees {
   font-size: 28px;
   color: #212121;
   font-weight: 400;

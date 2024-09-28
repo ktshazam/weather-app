@@ -1,7 +1,7 @@
 function newTemperature(response) {
-  let tempElement = document.querySelector("#temp");
+  let tempElement = document.querySelector("#temperature");
   let temperature = Math.round(response.data.temperature.current);
-  let cityElement = document.querySelector("#searchInput");
+  let cityElement = document.querySelector("#currentCity");
   cityElement.innerHTML = response.data.city;
   tempElement.innerHTML = temperature;
 }
@@ -17,10 +17,10 @@ function search(event) {
   axios.get(apiUrl).then(newTemperature);
 }
 
-function formatDate(date) {
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
-  let day = date.getDay();
+function formatDate(currentDay) {
+  let minutes = currentDay.getMinutes();
+  let hours = currentDay.getHours();
+  let day = currentDay.getDay();
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
