@@ -1,5 +1,5 @@
 function newTemperature(response) {
-  let tempElement = document.querySelector("#temperature");
+  let tempElement = document.querySelector("#temp");
   let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#currentCity");
   cityElement.innerHTML = response.data.city;
